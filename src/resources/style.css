@@ -48,3 +48,17 @@
     height: 8px;
     width: 8px;
 }
+@media only screen and (max-width: 767px) {
+    .tribe-events-header .tribe-daystrip-container {
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
+        display: inline-block;
+        width: auto;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+}
