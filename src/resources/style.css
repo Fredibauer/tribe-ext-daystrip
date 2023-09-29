@@ -1,8 +1,7 @@
 .tribe-events-header .tribe-daystrip-container {
-    display: flex;  /* Changed from none to flex */
+    display: flex;
     overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
 }
 
 .tribe-events-header .tribe-daystrip-container.full-width {
@@ -17,9 +16,9 @@
 }
 
 .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
-    text-align: center;
+    display: inline-flex;  /* Changed from text-align: center; */
+    white-space: nowrap;  /* Moved from .tribe-daystrip-container */
     padding: 10px 5px;
-    word-wrap: normal;
 }
 
 .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day:nth-child(n+2) {
@@ -63,7 +62,6 @@
 
 @media only screen and (max-width: 767px) {
     .tribe-events-header .tribe-daystrip-container {
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
         scrollbar-width: thin; /* For modern browsers */
         scrollbar-color: rgba(0,0,0,.1) rgba(0,0,0,.05); /* For modern browsers */
     }
@@ -79,7 +77,7 @@
     }
     
     .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
-        display: inline-block;
+        display: inline-block;  /* Changed from display: inline-block; */
         width: auto;
         padding: 10px 15px;  /* Adjusted padding */
         font-size: 16px;  /* Adjusted font size */
