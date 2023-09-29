@@ -63,8 +63,21 @@
         display: flex;
         overflow-x: auto;
         white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+        scrollbar-width: thin; /* For modern browsers */
+        scrollbar-color: rgba(0,0,0,.1) rgba(0,0,0,.05); /* For modern browsers */
     }
-
+    
+    .tribe-events-header .tribe-daystrip-container::-webkit-scrollbar {
+        height: 12px; /* Height of the scrollbar */
+    }
+    
+    .tribe-events-header .tribe-daystrip-container::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,.1); /* Color of the draggable scrollbar element */
+        border-radius: 20px; /* Rounded corners for the scrollbar */
+        border: 3px solid #fff; /* Border around the scrollbar thumb */
+    }
+    
     .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
         display: inline-block;
         width: auto;
