@@ -1,5 +1,8 @@
 .tribe-events-header .tribe-daystrip-container {
-    display: none;
+    display: flex;  /* Changed from none to flex */
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
 }
 
 .tribe-events-header .tribe-daystrip-container.full-width {
@@ -60,9 +63,6 @@
 
 @media only screen and (max-width: 767px) {
     .tribe-events-header .tribe-daystrip-container {
-        display: flex;
-        overflow-x: auto;
-        white-space: nowrap;
         -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
         scrollbar-width: thin; /* For modern browsers */
         scrollbar-color: rgba(0,0,0,.1) rgba(0,0,0,.05); /* For modern browsers */
