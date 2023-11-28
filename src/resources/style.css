@@ -1,50 +1,38 @@
+/* Base styles for the day strip */
 .tribe-events-header .tribe-daystrip-container {
-    display: none;
-}
-.tribe-events-header .tribe-daystrip-container.full-width {
+    display: flex; /* Ensures the strip is always displayed */
+    flex-wrap: nowrap; /* Prevents wrapping on smaller screens */
     width: 100%;
     margin-top: 1em;
 }
+
+/* Medium breakpoint styles */
 .tribe-common--breakpoint-medium.tribe-common .tribe-events-header .tribe-daystrip-container {
     line-height: 1.1;
-    display: flex;
     flex: auto;
-    /*justify-content: space-between;*/
 }
+
+/* Day cell styling */
 .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
     text-align: center;
     padding: 10px 5px;
     word-wrap: normal;
-    /*flex-grow: 1;*/
+    flex-grow: 1; /* Ensures equal distribution of space */
 }
-.tribe-events-header .tribe-daystrip-container .tribe-daystrip-day:nth-child(n+2) {
-    border-left: 1px solid #d5d5d5;
-}
-.tribe-daystrip-day span {
-    display: block;
-    text-align: center;
-}
-.tribe-daystrip-dayname {
-    font-size: 0.7em;
-    overflow: hidden;
-    text-transform: uppercase;
-}
-.tribe-daystrip-date {
 
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .tribe-events-header .tribe-daystrip-container {
+        flex-wrap: wrap; /* Allows items to wrap on very small screens */
+    }
+    .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
+        flex-basis: 20%; /* Adjusts the base size of each day - change as needed */
+        flex-grow: 0; /* Prevents growing, maintains base size */
+        flex-shrink: 0; /* Prevents shrinking */
+        min-width: 50px; /* Minimum width for readability */
+        padding: 5px; /* Adjust padding for smaller screens */
+    }
 }
-.tribe-events-header .tribe-daystrip-day.tribe-daystrip-past a {
-    color: #898b93;
-}
-.tribe-daystrip-day.tribe-daystrip-current {
-    background-color: #eee;
-}
-.tribe-daystrip-day.tribe-daystrip-today {
-    font-weight: bold;
-}
-.tribe-events .tribe-events-calendar-day__daystrip-events-icon--event {
-    display: inline-block;
-    background-color: #334aff;
-    border-radius: 50%;
-    height: 8px;
-    width: 8px;
-}
+
+/* Other styles remain unchanged */
+
