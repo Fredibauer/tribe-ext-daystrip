@@ -1,35 +1,39 @@
-/* Always display the day strip, but adjust its styling for mobile */
+/* Base styles for the day strip */
 .tribe-events-header .tribe-daystrip-container {
-    display: flex; /* Changed from 'none' to 'flex' */
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    display: flex; /* Ensures the strip is always displayed */
+    flex-wrap: nowrap; /* Prevents wrapping on smaller screens */
     width: 100%;
     margin-top: 1em;
 }
 
-/* Adjustments for medium screens and up */
+/* Medium breakpoint styles */
 .tribe-common--breakpoint-medium.tribe-common .tribe-events-header .tribe-daystrip-container {
     line-height: 1.1;
-    /* Flex properties already set in the base class, no need to repeat unless changing */
+    flex: auto;
 }
 
-/* Day cell styling - make sure it's flexible */
+/* Day cell styling */
 .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
     text-align: center;
     padding: 10px 5px;
     word-wrap: normal;
-    flex-grow: 1; /* Uncomment this to ensure each day takes up equal space */
-    min-width: 50px; /* Minimum width for each day to maintain readability */
+    flex-grow: 1; /* Ensures equal distribution of space */
 }
 
-/* Responsive adjustments using a media query for smaller screens */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
-    .tribe-daystrip-dayname {
-        font-size: 0.8em; /* Slightly larger font size for smaller screens */
+    .tribe-events-header .tribe-daystrip-container {
+        flex-wrap: wrap; /* Allows items to wrap on very small screens */
     }
     .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
-        padding: 5px; /* Reduce padding on smaller screens */
+        flex-basis: 20%; /* Adjusts the base size of each day - change as needed */
+        flex-grow: 0; /* Prevents growing, maintains base size */
+        flex-shrink: 0; /* Prevents shrinking */
+        min-width: 50px; /* Minimum width for readability */
+        padding: 5px; /* Adjust padding for smaller screens */
     }
 }
 
-/* Other existing styles can remain as is */
+/* Other styles remain unchanged */
+
 
