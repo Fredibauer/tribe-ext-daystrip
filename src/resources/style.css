@@ -1,39 +1,64 @@
-/* Base styles for the day strip */
+/* Display the day strip on all devices */
 .tribe-events-header .tribe-daystrip-container {
-    display: flex; /* Ensures the strip is always displayed */
-    flex-wrap: nowrap; /* Prevents wrapping on smaller screens */
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* Wrap items for smaller screens */
+    justify-content: center; /* Center items for better alignment */
+    width: 100%; /* Full width for responsiveness */
     margin-top: 1em;
 }
 
-/* Medium breakpoint styles */
-.tribe-common--breakpoint-medium.tribe-common .tribe-events-header .tribe-daystrip-container {
-    line-height: 1.1;
-    flex: auto;
-}
-
-/* Day cell styling */
+/* Adjustments for day strip items */
 .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
     text-align: center;
     padding: 10px 5px;
     word-wrap: normal;
-    flex-grow: 1; /* Ensures equal distribution of space */
+    flex-grow: 1; /* Allow flexible growth for responsiveness */
+    min-width: 60px; /* Minimum width for each day item */
+}
+
+/* Maintain border style */
+.tribe-events-header .tribe-daystrip-container .tribe-daystrip-day:nth-child(n+2) {
+    border-left: 1px solid #d5d5d5;
+}
+
+/* Style adjustments for day names and dates */
+.tribe-daystrip-dayname {
+    font-size: 0.7em;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+/* Adjustments for current, past, and today indicators */
+.tribe-daystrip-day.tribe-daystrip-past a {
+    color: #898b93;
+}
+
+.tribe-daystrip-day.tribe-daystrip-current {
+    background-color: #eee;
+}
+
+.tribe-daystrip-day.tribe-daystrip-today {
+    font-weight: bold;
+}
+
+/* Event icon style */
+.tribe-events .tribe-events-calendar-day__daystrip-events-icon--event {
+    display: inline-block;
+    background-color: #334aff;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
-    .tribe-events-header .tribe-daystrip-container {
-        flex-wrap: wrap; /* Allows items to wrap on very small screens */
+    .tribe-daystrip-dayname {
+        font-size: 0.6em; /* Smaller font for smaller screens */
     }
     .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
-        flex-basis: 20%; /* Adjusts the base size of each day - change as needed */
-        flex-grow: 0; /* Prevents growing, maintains base size */
-        flex-shrink: 0; /* Prevents shrinking */
-        min-width: 50px; /* Minimum width for readability */
-        padding: 5px; /* Adjust padding for smaller screens */
+        padding: 7px 3px; /* Adjust padding for smaller screens */
     }
 }
 
-/* Other styles remain unchanged */
 
 
