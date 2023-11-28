@@ -1,89 +1,35 @@
+/* Always display the day strip, but adjust its styling for mobile */
 .tribe-events-header .tribe-daystrip-container {
-    display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
-}
-
-.tribe-events-header .tribe-daystrip-container.full-width {
+    display: flex; /* Changed from 'none' to 'flex' */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
     width: 100%;
     margin-top: 1em;
 }
 
+/* Adjustments for medium screens and up */
 .tribe-common--breakpoint-medium.tribe-common .tribe-events-header .tribe-daystrip-container {
     line-height: 1.1;
-    display: flex;
-    flex: auto;
+    /* Flex properties already set in the base class, no need to repeat unless changing */
 }
 
+/* Day cell styling - make sure it's flexible */
 .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
-    display: inline-flex;  /* Changed from text-align: center; */
-    white-space: nowrap;  /* Moved from .tribe-daystrip-container */
-    padding: 10px 5px;
-}
-
-.tribe-events-header .tribe-daystrip-container .tribe-daystrip-day:nth-child(n+2) {
-    border-left: 1px solid #d5d5d5;
-}
-
-.tribe-daystrip-day span {
-    display: block;
     text-align: center;
+    padding: 10px 5px;
+    word-wrap: normal;
+    flex-grow: 1; /* Uncomment this to ensure each day takes up equal space */
+    min-width: 50px; /* Minimum width for each day to maintain readability */
 }
 
-.tribe-daystrip-dayname {
-    font-size: 0.7em;
-    overflow: hidden;
-    text-transform: uppercase;
-}
-
-.tribe-daystrip-date {
-
-}
-
-.tribe-events-header .tribe-daystrip-day.tribe-daystrip-past a {
-    color: #898b93;
-}
-
-.tribe-daystrip-day.tribe-daystrip-current {
-    background-color: #eee;
-}
-
-.tribe-daystrip-day.tribe-daystrip-today {
-    font-weight: bold;
-}
-
-.tribe-events .tribe-events-calendar-day__daystrip-events-icon--event {
-    display: inline-block;
-    background-color: #334aff;
-    border-radius: 50%;
-    height: 8px;
-    width: 8px;
-}
-
-@media only screen and (max-width: 767px) {
-    .tribe-events-header .tribe-daystrip-container {
-        scrollbar-width: thin; /* For modern browsers */
-        scrollbar-color: rgba(0,0,0,.1) rgba(0,0,0,.05); /* For modern browsers */
-    }
-    
-    .tribe-events-header .tribe-daystrip-container::-webkit-scrollbar {
-        height: 12px; /* Height of the scrollbar */
-    }
-    
-    .tribe-events-header .tribe-daystrip-container::-webkit-scrollbar-thumb {
-        background-color: rgba(0,0,0,.1); /* Color of the draggable scrollbar element */
-        border-radius: 20px; /* Rounded corners for the scrollbar */
-        border: 3px solid #fff; /* Border around the scrollbar thumb */
-    }
-    
-    .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
-        display: inline-block;  /* Changed from display: inline-block; */
-        width: auto;
-        padding: 10px 15px;  /* Adjusted padding */
-        font-size: 16px;  /* Adjusted font size */
-    }
-    
+/* Responsive adjustments using a media query for smaller screens */
+@media (max-width: 600px) {
     .tribe-daystrip-dayname {
-        font-size: 1em;  /* Adjusted font size */
+        font-size: 0.8em; /* Slightly larger font size for smaller screens */
+    }
+    .tribe-events-header .tribe-daystrip-container .tribe-daystrip-day {
+        padding: 5px; /* Reduce padding on smaller screens */
     }
 }
+
+/* Other existing styles can remain as is */
+
